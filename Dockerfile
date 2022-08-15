@@ -10,5 +10,4 @@ ARG DEPENDENCY=target/dependency
 COPY --from=builder ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY --from=builder ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=builder ${DEPENDENCY}/BOOT-INF/classes /app
-ENV spring.profiles.active=postgres
 ENTRYPOINT ["java","-cp","app:app/lib/*","com.example.demo.Application"]
